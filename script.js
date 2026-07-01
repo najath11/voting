@@ -155,6 +155,9 @@ function closeModal() {
 function confirmVote() {
     if (!selectedCandidate) return;
 
+    // Play polling sound
+    playPollingSound();
+
     // Save vote to localStorage
     const votes = getVotes();
     votes[selectedCandidate.id] = (votes[selectedCandidate.id] || 0) + 1;
@@ -175,6 +178,29 @@ function confirmVote() {
 
     // Reset selected
     selectedCandidate = null;
+}
+
+// ─── Polling Sound ───────────────────
+function playPollingSound() {
+    try {
+        const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        const oscillator = audioCtx.createOscillator();
+        const gainNode = audioCtx.createGain();
+
+        oscillator.type = 'sine';
+        oscillator.frequency.value = 1000; // High pitch electronic beep
+
+        gainNode.gain.setValueAtTime(0.5, audioCtx.currentTime); // Start volume
+        gainNode.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 1.5); // Fade out over 1.5s
+
+        oscillator.connect(gainNode);
+        gainNode.connect(audioCtx.destination);
+
+        oscillator.start();
+        oscillator.stop(audioCtx.currentTime + 1.5);
+    } catch (e) {
+        console.log("Audio not supported or blocked", e);
+    }
 }
 
 // ─── Votes Storage ───────────────────
