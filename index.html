@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ELIGO 2026-27 | AMUPS Valluvambram School Parliament Election</title>
+    <meta name="description" content="ELIGO - The Festival of Democracy. School Parliament Election 2026-27 for A.M.U.P.S Valluvambram. Cast your vote and choose your school leader.">
+    <meta name="theme-color" content="#0a0e27">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- ═══ Background Effects ═══ -->
+    <div class="bg-gradient"></div>
+    <div class="bg-orb bg-orb-1"></div>
+    <div class="bg-orb bg-orb-2"></div>
+    <div class="bg-orb bg-orb-3"></div>
+    <div id="particles"></div>
+
+    <!-- ═══════════════════════════════════════
+         SCREEN 1: WELCOME
+         ═══════════════════════════════════════ -->
+    <section id="welcome-screen" class="screen active">
+        <div class="welcome-content">
+            <div class="logo-container">
+                <div class="logo-glow"></div>
+                <img
+                    src="logo.png"
+                    alt="AMUPS Valluvambram - Step by Step"
+                    class="school-logo"
+                    onerror="this.style.display='none'"
+                >
+            </div>
+
+            <div class="election-badge">ELIGO 2026-27</div>
+
+            <h1 class="election-title">School Parliament<br>Election</h1>
+
+            <p class="election-subtitle">"The festival of democracy"</p>
+
+            <p class="school-name">A.M.U.P.S Valluvambram</p>
+
+            <button
+                id="start-voting-btn"
+                class="btn-primary"
+                onclick="showScreen('voting-screen')"
+                aria-label="Start the voting process"
+            >
+                <span>Start Voting</span>
+                <span class="arrow">→</span>
+            </button>
+
+            <div class="vote-counter">
+                <span class="counter-icon">🗳️</span>
+                <span class="counter-number" id="total-votes">0</span>
+                <span>votes cast</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         SCREEN 2: VOTING
+         ═══════════════════════════════════════ -->
+    <section id="voting-screen" class="screen">
+        <button class="btn-back" onclick="showScreen('welcome-screen')" aria-label="Go back to welcome screen">
+            <span class="back-arrow">←</span>
+            <span>Back</span>
+        </button>
+
+        <div class="voting-header">
+            <img
+                src="logo.png"
+                alt=""
+                class="voting-header-logo"
+                onerror="this.style.display='none'"
+            >
+            <h2>Select Your Leader</h2>
+            <p>Tap on a candidate card to cast your vote</p>
+            <div class="voting-instruction">
+                <span>👆</span>
+                <span>Choose one candidate</span>
+            </div>
+        </div>
+
+        <div class="candidates-grid" id="candidates-grid">
+            <!-- Candidate cards rendered by JavaScript -->
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         CONFIRM MODAL
+         ═══════════════════════════════════════ -->
+    <div id="confirm-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+        <div class="modal-content">
+            <h3 class="modal-title" id="modal-title">Confirm Your Vote</h3>
+
+            <div id="selected-candidate-details">
+                <!-- Filled by JavaScript -->
+            </div>
+
+            <div class="modal-actions">
+                <button
+                    class="btn-cancel"
+                    onclick="closeModal()"
+                    aria-label="Cancel and go back"
+                >
+                    Cancel
+                </button>
+                <button
+                    class="btn-confirm"
+                    onclick="confirmVote()"
+                    aria-label="Confirm your vote"
+                >
+                    ✓ Confirm Vote
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════
+         SCREEN 3: THANK YOU
+         ═══════════════════════════════════════ -->
+    <section id="thankyou-screen" class="screen">
+        <div class="thankyou-content">
+            <div class="checkmark-container">
+                <div class="checkmark-circle">
+                    <svg viewBox="0 0 50 50">
+                        <path class="checkmark-path" d="M14 27 L22 35 L38 16" />
+                    </svg>
+                </div>
+                <div class="checkmark-ring"></div>
+            </div>
+
+            <h2>Vote Recorded!</h2>
+            <p>Thank you for participating in the festival of democracy</p>
+
+            <button
+                class="btn-primary"
+                onclick="resetForNextVoter()"
+                aria-label="Ready for next voter"
+            >
+                <span>Next Voter</span>
+                <span class="arrow">→</span>
+            </button>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         SCREEN 4: RESULTS (Admin Only)
+         ═══════════════════════════════════════ -->
+    <section id="results-screen" class="screen">
+        <button class="btn-back" onclick="showScreen('welcome-screen')" aria-label="Go back to welcome screen">
+            <span class="back-arrow">←</span>
+            <span>Back</span>
+        </button>
+
+        <div class="results-container">
+            <div class="results-header">
+                <h2>📊 Election Results</h2>
+                <p>ELIGO 2026-27 — A.M.U.P.S Valluvambram</p>
+                <div class="results-total">
+                    <span>🗳️</span>
+                    Total Votes: <span id="results-total">0</span>
+                </div>
+            </div>
+
+            <div class="results-list" id="results-list">
+                <!-- Filled by JavaScript -->
+            </div>
+
+            <div class="results-actions">
+                <button class="btn-secondary" onclick="showScreen('welcome-screen')">
+                    ← Back to Voting
+                </button>
+                <button class="btn-danger" onclick="resetVotes()">
+                    🗑️ Reset All Votes
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ Admin Access Button ═══ -->
+    <button
+        id="admin-btn"
+        onclick="showAdminLogin()"
+        aria-label="Admin panel access"
+        title="Admin Panel"
+    >⚙️</button>
+
+    <!-- ═══ Application Script ═══ -->
+    <script src="script.js"></script>
+
+</body>
+</html>
