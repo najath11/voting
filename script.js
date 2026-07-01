@@ -107,10 +107,13 @@ function renderCandidates() {
 
         card.innerHTML = `
             <div class="candidate-number">${c.id}</div>
-            <div class="symbol-circle">${c.symbol}</div>
-            <div class="symbol-label">${c.symbolName}</div>
-            <div class="candidate-name">${c.name}</div>
-            <div class="candidate-class">Class ${c.class}</div>
+            <div class="card-content">
+                <div class="symbol-box">${c.symbol}</div>
+                <div class="info-container">
+                    <div class="symbol-label">${c.symbolName}</div>
+                    <div class="candidate-name">${c.name}</div>
+                </div>
+            </div>
         `;
 
         grid.appendChild(card);
