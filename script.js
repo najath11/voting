@@ -6,20 +6,20 @@
 
 // ─── Candidate Data ───────────────────
 const candidates = [
-    { id: 1,  name: "ARDRA. K",              class: "7.A", symbol: "🌳", symbolName: "Tree",        color: "#43A047", colorLight: "#81C784" },
-    { id: 2,  name: "SAYEED YOOSUF.P",       class: "7.A", symbol: "💻", symbolName: "Laptop",      color: "#1E88E5", colorLight: "#64B5F6" },
-    { id: 3,  name: "FATHIMA JAZA K",        class: "7.B", symbol: "🪑", symbolName: "Table",       color: "#8D6E63", colorLight: "#BCAAA4" },
-    { id: 4,  name: "AMEEQ AHAN M",          class: "7.B", symbol: "🚲", symbolName: "Bicycle",     color: "#FB8C00", colorLight: "#FFB74D" },
-    { id: 5,  name: "ADHENA. E",              class: "7.C", symbol: "✒️", symbolName: "Pen",         color: "#546E7A", colorLight: "#90A4AE" },
-    { id: 6,  name: "MUHAMMED RAZIN K",      class: "7.C", symbol: "🏏", symbolName: "Cricket Bat", color: "#7CB342", colorLight: "#AED581" },
-    { id: 7,  name: "SHAHANA SHERIN KP",     class: "7.D", symbol: "👟", symbolName: "Shoe",        color: "#8E24AA", colorLight: "#BA68C8" },
-    { id: 8,  name: "RINSHAD. N",             class: "7.D", symbol: "📖", symbolName: "Book",        color: "#00ACC1", colorLight: "#4DD0E1" },
-    { id: 9,  name: "SNIGDHA P",              class: "7.E", symbol: "📱", symbolName: "Mobile",      color: "#5C6BC0", colorLight: "#9FA8DA" },
-    { id: 10, name: "SHADIN MUHAMMED.U",     class: "7.E", symbol: "☂️", symbolName: "Umbrella",    color: "#E53935", colorLight: "#EF9A9A" },
-    { id: 11, name: "NAFEESATHUL MISRIYA",   class: "7.F", symbol: "💺", symbolName: "Chair",       color: "#FF6F00", colorLight: "#FFCA28" },
-    { id: 12, name: "ADYAN V.K",              class: "7.F", symbol: "🏸", symbolName: "Racket",      color: "#00897B", colorLight: "#80CBC4" },
-    { id: 13, name: "FATHIMA NIYA. C",        class: "7.G", symbol: "🎒", symbolName: "Backpack",    color: "#D81B60", colorLight: "#F48FB1" },
-    { id: 14, name: "SANABUL IHSAN. MT",     class: "7.G", symbol: "🕐", symbolName: "Clock",       color: "#7E57C2", colorLight: "#B39DDB" },
+    { id: 1, name: "ARDRA. K", class: "7.A", symbol: "🌳", symbolName: "Tree", color: "#43A047", colorLight: "#81C784" },
+    { id: 2, name: "SAYEED YOOSUF.P", class: "7.A", symbol: "💻", symbolName: "Laptop", color: "#1E88E5", colorLight: "#64B5F6" },
+    { id: 3,  name: "FATHIMA JAZA K",        class: "7.B", symbol: '<svg viewBox="0 0 64 64" width="48" height="48" style="display:block"><rect x="6" y="18" width="52" height="6" rx="2.5" fill="#A1887F"/><rect x="6" y="22" width="52" height="2" rx="1" fill="#8D6E63" opacity="0.5"/><rect x="10" y="24" width="5" height="24" rx="2" fill="#8D6E63"/><rect x="49" y="24" width="5" height="24" rx="2" fill="#8D6E63"/><rect x="26" y="24" width="5" height="18" rx="2" fill="#795548"/><rect x="38" y="24" width="5" height="18" rx="2" fill="#795548" opacity="0.7"/></svg>', symbolName: "Table",       color: "#8D6E63", colorLight: "#BCAAA4" },
+    { id: 4, name: "AMEEQ AHAN M", class: "7.B", symbol: "🚲", symbolName: "Bicycle", color: "#FB8C00", colorLight: "#FFB74D" },
+    { id: 5, name: "ADHENA. E", class: "7.C", symbol: "✒️", symbolName: "Pen", color: "#546E7A", colorLight: "#90A4AE" },
+    { id: 6, name: "MUHAMMED RAZIN K", class: "7.C", symbol: "🏏", symbolName: "Cricket Bat", color: "#7CB342", colorLight: "#AED581" },
+    { id: 7, name: "SHAHANA SHERIN KP", class: "7.D", symbol: "👟", symbolName: "Shoe", color: "#8E24AA", colorLight: "#BA68C8" },
+    { id: 8, name: "RINSHAD. N", class: "7.D", symbol: "📖", symbolName: "Book", color: "#00ACC1", colorLight: "#4DD0E1" },
+    { id: 9, name: "SNIGDHA P", class: "7.E", symbol: "📱", symbolName: "Mobile", color: "#5C6BC0", colorLight: "#9FA8DA" },
+    { id: 10, name: "SHADIN MUHAMMED.U", class: "7.E", symbol: "☂️", symbolName: "Umbrella", color: "#E53935", colorLight: "#EF9A9A" },
+    { id: 11, name: "NAFEESATHUL MISRIYA", class: "7.F", symbol: "🪑", symbolName: "Chair", color: "#FF6F00", colorLight: "#FFCA28" },
+    { id: 12, name: "ADYAN V.K", class: "7.F", symbol: "🏸", symbolName: "Racket", color: "#00897B", colorLight: "#80CBC4" },
+    { id: 13, name: "FATHIMA NIYA. C", class: "7.G", symbol: "🎒", symbolName: "Backpack", color: "#D81B60", colorLight: "#F48FB1" },
+    { id: 14, name: "SANABUL IHSAN. MT", class: "7.G", symbol: "🕐", symbolName: "Clock", color: "#7E57C2", colorLight: "#B39DDB" },
 ];
 
 // ─── State ────────────────────────────
